@@ -23,10 +23,6 @@ transporter.verify(function(error, success) {
 
 let doctor
 
-
-app.get("/doctor-code",(req,res) => {
-	res.render("doctor-code");
-});
 app.post("/doctor-code",(req,res) => {
 	
 		const doc = {
@@ -102,8 +98,8 @@ else
 })
 
 
-app.get("/doctor-login",(req,res) => {
-	res.render("doctor-login");
+app.get("/doctor-code",(req,res) => {
+	res.render("doctor-code");
 });
 
 app.post("/doctor-login",(req,res) => {
