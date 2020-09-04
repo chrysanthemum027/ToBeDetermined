@@ -9,8 +9,15 @@ const app = express();
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-      user: 'talkitouteduthon',
+      user: 'talkitouteduthon@gmail.com',
       pass: GMAIL_PASS
+  }
+});
+transporter.verify(function(error, success) {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Server is ready to take our messages');
   }
 });
 
@@ -30,13 +37,21 @@ app.post("/doctor-code",(req,res) => {
 		"place": req.body.place,
 		"time": req.body.time
 	}
-	
+	var email = req.body.email;
 	const mailOptions = {
       from: 'talkitouteduthon@gmail.com',
-      to: doc.email,
+      to: req.body.email,
       subject: 'Welcome to TalkItOut',
-      text: 'Welcome to TalkItOut. Your Code to Complete the Registration Process is - 123'+doc.name+'*&%'
+      text: 'Welcome to TalkItOut. Your Code to Complete the Registration Process is - 123'+req.body.name+'*&%'
     };
+    
+    transporter.sendMail(mailOptions, function(err, data) { 
+    if(err) { 
+        console.log('Error Occurs'); 
+    } else { 
+        console.log('Email sent successfully'); 
+    } 
+}); 
     
     res.status(200);
     res.render("doctor-register",{
@@ -93,14 +108,11 @@ app.get("/doctor-login",(req,res) => {
 
 app.post("/doctor-login",(req,res) => {
 
-
 doctorModel.findOne({'email':req.body.email},
   function(err,data)
   {
 	  if(!err)
 	  { 
-		  console.log(data.password);
-		  console.log(req.body.password);
 	     if(data.password == req.body.password)
 	     {
 			 const doctor = {
@@ -113,7 +125,7 @@ doctorModel.findOne({'email':req.body.email},
     };
     req.session.user = doctor;
 			 res.status(200);
-             res.render("doctor-dashboard",{doctor:req.session.user})
+             res.render("doctor-dashboard",{doctor:data})
 		 }
 		 else
 		 {
