@@ -1,0 +1,15 @@
+<form method="post" action="/doctor/doctor-register" id="login1">
+<h2>Enter the OTP</h2>
+            
+        <label><B>Otp has been sent to your email:</B>
+            <input type="text" name="code" placeholder="Enter Password" required>
+            </label><br><br>
+            <input type="hidden" name="name" value="<%= name%>">
+            <input type="hidden" name="email" value="<%= email%>">
+            <input type="hidden" name="password" value="<%= password%>">
+            <input type="hidden" name="degree" value="<%= degree%>">
+            <input type="hidden" name="place" value="<%= place%>">
+            <input type="hidden" name="time" value="<%= time%>">
+     <button type="submit"><b>Submit</b></button> 
+		
+</form>

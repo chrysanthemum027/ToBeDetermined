@@ -1,0 +1,21 @@
+/* set entire body that is webpage */
+body{
+	background: #383a3d;
+	padding-top: 25vh;	
+}
+/* set form background colour*/
+form{
+	background: #fff;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+/* set padding and size of th form */
+.form-container{
+	border-radius: 10px;
+	padding: 30px;
+}
+button {
+	background-color: #2a8745;
+}
+font-family {
+	-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
