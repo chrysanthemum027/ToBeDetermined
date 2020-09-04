@@ -33,8 +33,13 @@ app.use(expressLayouts);
 app.set("view engine", "ejs");
 
 
+<<<<<<< HEAD
 //app.use('/user', require('./routes/user.js'));
 app.use('/doctor', require('./routes/doctor.js'));
+=======
+
+//app.use('/', require('./routes/app.js'));
+>>>>>>> 2ff27a3c8f8f77876eba7d2948ba4f536d6e73bf
 
 
 app.get('/home', (req, res) => {
