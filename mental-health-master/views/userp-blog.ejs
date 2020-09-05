@@ -1,0 +1,198 @@
+<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css" />
+
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<div class="container">
+
+<div class="page-header">
+    <h1>Blogs</h1>
+</div>
+
+<!-- Team Cards Flipper - START -->
+<% if (msg == 0) { %>
+<%for(var i=0;i< blog.length;i++){%>
+<section id="team" class="pb-5" style="text-align:center">
+    <div class="container" style="text-align:center">
+       <!--  <h5 class="section-title h1">OUR TEAM</h5> -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center" data-aos="fade-right" data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out">
+                                    <p>
+										<h4 class="card-title"><%=blog[i].title%></h4>
+                                        <img class=" img-fluid" alt="Team Cards Flipper" src="https://images.unsplash.com/photo-1591035897819-f4bdf739f446?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" /></p>
+                                    <p class="card-text"><b>Category:</b> <%=blog[i].category%></p>
+                                    <p class="card-text"><b>Author:</b> <%=blog[i].author%></p>
+                                    <p class="card-text"><b>Views: </b><%=blog[i].views%></p><br>
+                                    <a href="/blog/:<%=blog[i].title%>" class="btn btn-primary btn-sm">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<%}%>
+<%} else { %>
+	<section id="team" class="pb-5" style="text-align:center">
+    <div class="container">
+       <!--  <h5 class="section-title h1">OUR TEAM</h5> -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p>
+										<h4 class="card-title"><%=blog.title%></h4>
+                                        <img class=" img-fluid" alt="Team Cards Flipper" src="https://images.unsplash.com/photo-1591035897819-f4bdf739f446?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" /></p>
+                                    
+                                    <p class="card-text"><b>Category:</b> <%=blog.category%></p>
+                                    <p class="card-text"><b>Author:</b> <%=blog.author%></p>
+                                    <p class="card-text"><b>Views:</b> <%=blog.views%></p><br>
+                                    <p class="card-text"><%-blog.content%></p>
+                                    <a href="/blog" class="btn btn-primary btn-sm">Explore More</a>
+                                </div>
+                            </div>
+                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>
+
+<style>
+	body
+	{
+		background-image: linear-gradient(to right, lavender, plum);
+	}
+    .btn-primary:hover,
+    .btn-primary:focus
+    {
+        background-color: #108d6f;
+        border-color: #108d6f;
+        box-shadow: none;
+        outline: none;
+    }
+
+    .btn-primary
+    {
+        color: #fff;
+        background-color: #305891;
+        border-color: #305893;
+    }
+
+    section
+    {
+        padding: 60px 0;
+    }
+
+        section .section-title
+        {
+            text-align: center;
+            color: #305893;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+    #team .card
+    {
+        border: none;
+        background: #ffffff;
+    }
+
+
+    .frontside
+    {
+        position: relative;
+        -webkit-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        z-index: 2;
+        margin-bottom: 30px;
+    }
+
+    .backside
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: white;
+        -webkit-transform: rotateY(-180deg);
+        -moz-transform: rotateY(-180deg);
+        -o-transform: rotateY(-180deg);
+        -ms-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+        -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+        -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+        box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    }
+
+    .frontside,
+    .backside
+    {
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transition: 1s;
+        -webkit-transform-style: preserve-3d;
+        -moz-transition: 1s;
+        -moz-transform-style: preserve-3d;
+        -o-transition: 1s;
+        -o-transform-style: preserve-3d;
+        -ms-transition: 1s;
+        -ms-transform-style: preserve-3d;
+        transition: 1s;
+        transform-style: preserve-3d;
+    }
+
+        .frontside .card,
+        .backside .card
+        {
+			padding: 2%;
+			align-text: center;
+            min-height: 312px;
+        }
+
+            .backside .card a
+            {
+                font-size: 18px;
+                color: #305893 !important;
+            }
+
+            .frontside .card .card-title,
+            .backside .card .card-title
+            {
+				font-size: 30px;
+                color: #305893 !important;
+            }
+
+            .frontside .card .card-body img
+            {
+                width: 100%;
+            }
+            .frontside .card .card-body p
+            {
+                font-size: 20px;
+            }
+</style>
+<!-- Team Cards Flipper - END -->
+
+</div>
+<script>
+AOS.init();
+</script>

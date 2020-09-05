@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const commentSchema = new mongoose.Schema({
-  content: {
+content: {
     type: String
     },
-  author: {
+author: {
 type: String
 },
 blogtitle: {

@@ -91,6 +91,49 @@ app.get('/doctor-available', async (req, res) => {
   }
 });
 
+app.get("/userp-blog:name",(req,res) => {
+	var userpname = req.params.name;
+		userpname = userpname.substring(1);
+		
+		const blog = blogModel.find({});
+
+  try {
+    res.render("userp-blog",{userp:userp,blog:blog,msg:0});
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+app.get("/userp-blog:name/:title",(req,res) => {
+	var userpname = req.params.name;
+		userpname = userpname.substring(1);
+		var blogtitle = req.params.title;
+		blogtitle = blogtitle.substring(1);
+		
+		blogModel.findOne({'title':blogtitle},
+  function(err,data)
+  {
+	  if(!err)
+	  { 
+		  blogModel.findOneAndUpdate({'title':blogtitle},{'views':data.views+1},
+  function(err,data)
+  {
+	  if(!err)
+	  { 
+	  
+	  res.render("userp-blog",{userp:userp,blog:data,msg:1});
+	  }
+	  else
+	  {
+		res.send(err);  
+	  }})
+  }
+	  else
+	  {
+		res.send(err);  
+	  }});
+});
+
 
 app.get('/home', (req, res) => {
   res.status(200);
