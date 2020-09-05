@@ -138,9 +138,7 @@ doctorModel.findOne({'email':req.body.email},
 }
 )
 
-app.post('/doctor-dashboard/add-blog', async (req,res) => {
-	if(doctor.name)
-	{
+app.post('/doctor/doctor-dashboard/add-blog', async (req,res) => {
 
     const data2 = {
         "title": req.body.title,
@@ -163,12 +161,6 @@ const blog =  blogModel.find({});
   } catch (err) {
     res.status(500).send(err);
   }
-}
-else
-{
-	res.status(500);
-	res.redirect('/error');
-}
 });
 
 
