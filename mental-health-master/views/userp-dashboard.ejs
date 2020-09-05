@@ -14,7 +14,9 @@
 <br>
 </div>
 
-<a href="/userp-blog:<%= userp.name%>">Read Blogs</a>
+<a href="/userp-blog:<%= userp.name%>">Read Blogs</a><br>
+<button><a href="/userp/logout">Logout</a></button><br>
+<button><a href="/userp-status:<%= userp.name%>">Logout</a></button><br>
 
 
 <style>
@@ -57,5 +59,18 @@
 	label
 	{
 	font-size: 150%;
+	}
+	a
+	{
+	text-decoration:none;
+	align-text: center;
+	}
+	button
+	{
+	padding: 2%;
+	text-decoration:none;
+	color: white;
+	background-color: violet;
+	align-text: center;
 	}
 </style>

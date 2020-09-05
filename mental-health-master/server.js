@@ -10,6 +10,8 @@ const blogModel = require('./model/blog.js');
 const commentModel = require('./model/comment.js');
 const doctorModel = require('./model/doctor.js');
 const userpModel = require('./model/userp.js');
+const converter = require('json-2-csv');
+const fs = require('fs');
 
 mongoose.connect(MONGOURI,{
     useNewUrlParser:true,
@@ -55,7 +57,6 @@ app.get('/blog/:title', (req, res) => {
 	
 		var rem = req.params.title;
 		rem = rem.substring(1);
-		console.log(rem);
 		blogModel.findOne({'title':rem},
   function(err,data)
   {
@@ -102,6 +103,32 @@ app.get("/userp-blog:name", async (req,res) => {
   } catch (err) {
     res.status(500).send(err);
   }
+});
+
+app.get("/userp-status:name", async (req,res) => {
+	var userpname = req.params.name;
+		userpname = userpname.substring(1);
+		commentModel.find({'author':userpname},
+  function(err,data)
+  {
+	  if(!err)
+	  {
+		  console.log(data);
+		  converter.json2csv(data, (err1, csv) => {
+    if (err1) {
+        throw err1;
+    }
+
+    // print CSV string
+    console.log(csv);
+    fs.writeFileSync('usercomment.csv', csv);
+    });
+		  res.render("userp-status",{userpname:userpname});
+      }
+	  else
+	  {
+		res.send(err);  
+	  }});
 });
 
 app.get("/userp-blog/:name/:title",(req,res) => {
