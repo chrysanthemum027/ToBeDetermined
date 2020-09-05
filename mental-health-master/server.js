@@ -80,6 +80,17 @@ app.get('/blog/:title', (req, res) => {
 });
 
 
+app.get('/doctor-available', async (req, res) => {
+  const doctor = await doctorModel.find({});
+
+  try {
+    res.render('doctor-available',{doctor:doctor});
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+
 app.get('/home', (req, res) => {
   res.status(200);
   res.render("home");
