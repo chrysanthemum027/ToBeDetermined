@@ -135,6 +135,16 @@ app.get("/userp-blog:name/:title",(req,res) => {
 });
 
 
+app.get('/faq', (req, res) => {
+  res.status(200);
+  res.render("faq");
+});
+
+app.get('/about', (req, res) => {
+  res.status(200);
+  res.render("about");
+});
+
 app.get('/home', (req, res) => {
   res.status(200);
   res.render("home");
