@@ -1,0 +1,59 @@
+<div class="container" style="text-align:center;">
+<h1>Your Dashboard</h1>
+<div class="top-doc">
+<div class="card-doc">
+<img src="https://images.unsplash.com/photo-1482849297070-f4fae2173efe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80">
+</div>
+<div class="card-doc">
+<h2>Personal Details-</h2>
+<br>
+<p>Name: <%= userp.name%></p>
+<p>Email: <%= userp.email%></p>
+</div>
+</div>
+<br>
+</div>
+
+
+<style>
+	body
+	{
+		background-image: linear-gradient(to right, lavender, plum);
+	}
+	h1
+	{
+	font-size:400%;
+	}
+	h2
+	{
+	color: mediumorchid;
+	}
+		.top-doc
+	{
+	flex-flow: row wrap;
+	display:flex;
+	flex-direction:row;
+	justify-content:space-around;
+	padding:2%;
+	}
+	.card-doc
+	{
+	font-size: 200%;
+	background-color:white;
+	display:flex;
+	flex-direction:column;
+	flex-basis:40%;
+	padding:2%;
+	margin:1%;
+	justify-content:space-around;
+	}
+	.card-doc img
+	{
+	text-align:center;
+	width: 97%;
+	}
+	label
+	{
+	font-size: 150%;
+	}
+</style>

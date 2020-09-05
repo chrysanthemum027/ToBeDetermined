@@ -3,6 +3,7 @@ const blogModel = require('../model/blog.js');
 const commentModel = require('../model/comment.js');
 const doctorModel = require('../model/doctor.js');
 const nodemailer = require("nodemailer");
+const userpModel = require('../model/userp.js');
 const {GMAIL_PASS} = require('../keys')
 const app = express();
 
