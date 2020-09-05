@@ -138,6 +138,39 @@ doctorModel.findOne({'email':req.body.email},
 }
 )
 
+app.post('/doctor-dashboard/add-blog', async (req,res) => {
+	if(doctor.name)
+	{
+
+    const data2 = {
+        "title": req.body.title,
+        "content": req.body.content,
+        "author": req.session.author,
+        "category": req.session.category,
+    };
+  const new_blog = new blogModel(data2);
+
+  try {
+     new_blog.save();
+const blog =  blogModel.find({});
+
+  try {
+    res.status(200);
+    res.render("add")
+  } catch (err) {
+    res.status(500).send(err);
+  }
+  } catch (err) {
+    res.status(500).send(err);
+  }
+}
+else
+{
+	res.status(500);
+	res.redirect('/error');
+}
+});
+
 
 
 module.exports = app;

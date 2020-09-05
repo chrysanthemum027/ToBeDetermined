@@ -1,0 +1,36 @@
+<% if (msg == 0) { %>
+<div id="place-holder">
+<%for(var i=0;i< blog.length;i++){%>
+<div class="card">
+<a href= "/blog/:<%=blog[i].title%>"><h2><%=blog[i].title%></h2></a>
+<div class = "comment">
+<p><%- blog[i].content%></p>
+</div>
+<a href= "/blog/:<%=blog[i].title%>">Read More</a>
+</div>
+<br><br>
+<%}%>
+</div>
+<%} else { %>
+<div id="place-holder">
+<div class="card">
+<h2><%=blog.title%></h2>
+<p><%- blog.content%></p>
+<br><br>
+<button><a href= "/blog" style = "text-decoration: none;">Explore More</a></button>
+</div>
+<br><br>
+</div>
+<% } %>
+
+<script type="text/javascript">
+$(function(){
+  $(".comment").each(function(i){
+    len=$(this).text().length;
+    if(len>300)
+    {
+      $(this).text($(this).text().substr(0,300)+'…');
+    }
+  });
+});
+</script>

@@ -3,3 +3,33 @@
 <h1>Degree: <%= doctor.degree%></h1>
 <h1>Place: <%= doctor.place%></h1>
 <h1>Time: <%= doctor.time%></h1>
+
+<br>
+<h1>Add Blog</h1>
+<div class="add-blog">
+<form method="post" action="doctor/doctor-dashboard/add-blog" id="blog-form">
+
+            <label><B>Title:</B>
+            <input type="text" name="title" placeholder="Enter the Title" required>
+            </label><br><br>
+            <label><B>Title:</B>
+            <input type="text" name="category" placeholder="Enter the Category" required>
+            </label><br><br>
+
+
+			
+	    <label><B>Blog:</B><br><br>
+	  <textarea id="content1" name="content" form = "blog-form"></textarea>
+	  <br><br></label>
+			<input type="hidden" name="author" value="<%= doctor.name%>">
+            <button type="submit"><b>Save</b></button> 
+</form>
+</div>
+
+<script>
+	$('#content1').richText();
+	</script>
+<link rel="stylesheet" href="/richtext.min.css">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/jquery.richtext.js"></script>
+<script src="/jquery.richtext.min.js"></script>
