@@ -91,20 +91,20 @@ app.get('/doctor-available', async (req, res) => {
   }
 });
 
-app.get("/userp-blog:name",(req,res) => {
+app.get("/userp-blog:name", async (req,res) => {
 	var userpname = req.params.name;
 		userpname = userpname.substring(1);
 		
-		const blog = blogModel.find({});
+		const blog = await blogModel.find({});
 
   try {
-    res.render("userp-blog",{userp:userp,blog:blog,msg:0});
+    res.render("userp-blog",{userpname:userpname,blog:blog,msg:0});
   } catch (err) {
     res.status(500).send(err);
   }
 });
 
-app.get("/userp-blog:name/:title",(req,res) => {
+app.get("/userp-blog/:name/:title",(req,res) => {
 	var userpname = req.params.name;
 		userpname = userpname.substring(1);
 		var blogtitle = req.params.title;
@@ -116,12 +116,22 @@ app.get("/userp-blog:name/:title",(req,res) => {
 	  if(!err)
 	  { 
 		  blogModel.findOneAndUpdate({'title':blogtitle},{'views':data.views+1},
-  function(err,data)
+  function(err2,data2)
   {
-	  if(!err)
+	  if(!err2)
 	  { 
-	  
-	  res.render("userp-blog",{userp:userp,blog:data,msg:1});
+	  commentModel.find({'blogtitle':blogtitle},
+	  function(err1,data1)
+	  {
+	  if(!err1)
+	  { 
+	  res.render("userp-blog",{userpname:userpname,blog:data,data1:data1,msg:1});
+      }
+      else
+	  {
+		res.send(err1);  
+	  }
+      });
 	  }
 	  else
 	  {
@@ -132,6 +142,30 @@ app.get("/userp-blog:name/:title",(req,res) => {
 	  {
 		res.send(err);  
 	  }});
+});
+
+app.post("/userp-blog/:name/:title/add-comment",(req,res) => {
+	console.log("posting")
+	const data = {
+        "content": req.body.content,
+        "author": req.body.author,
+        "blogtitle": req.body.blogtitle,
+    };
+  const new_comment = new commentModel(data);
+
+  try {
+     new_comment.save();
+const comment =  commentModel.find({});
+
+  try {
+    res.status(200);
+    res.redirect("back");
+  } catch (err) {
+    res.status(500).send(err);
+  }
+  } catch (err) {
+    res.status(500).send(err);
+  }
 });
 
 

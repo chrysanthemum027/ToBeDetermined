@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Grocery Game!</title>
+        <style>
+            canvas{border:1px solid black;}
+            body{text-align: center;}
+            h1{font-family: Verdana;}
+            div{font-size: 10px;
+                font-family: Verdana;}
+            .myButtonE {
+                background-color:#44c767;
+                -moz-border-radius:28px;
+                -webkit-border-radius:28px;
+                border-radius:28px;
+                border:1px solid #18ab29;
+                display:none;
+                cursor:pointer;
+                color:#ffffff;
+                font-family:Verdana;
+                font-size:17px;
+                padding:16px 31px;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #2f6627;
+            }
+            .myButtonE:hover {
+                background-color:#5cbf2a;
+            }
+            .myButtonE:active {
+                position:relative;
+                top:1px;
+            }
+
+            .myButtonH {
+                background-color:#f02424;
+                -moz-border-radius:28px;
+                -webkit-border-radius:28px;
+                border-radius:28px;
+                border:1px solid #94351e;
+                display:none;
+                cursor:pointer;
+                color:#ffffff;
+                font-family:Verdana;
+                font-size:17px;
+                padding:16px 31px;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #662828;
+            }
+            .myButtonH:hover {
+                background-color:#cc3a21;
+            }
+            .myButtonH:active {
+                position:relative;
+                top:1px;
+            }
+
+            .myButtonR {
+                background-color:#a245c7;
+                -moz-border-radius:28px;
+                -webkit-border-radius:28px;
+                border-radius:28px;
+                border:1px solid #9319ab;
+                display:none;
+                cursor:pointer;
+                color:#ffffff;
+                font-family:Arial;
+                font-size:17px;
+                padding:16px 31px;
+                text-decoration:none;
+                text-shadow:0px 1px 0px #5e2866;
+            }
+            .myButtonR:hover {
+                background-color:#a92abd;
+            }
+            .myButtonR:active {
+                position:relative;
+                top:1px;
+            }
+
+
+        </style>
+    </head>
+
+    <body style="background-color:gray;">
+        <h1>The Grocery Game!</h1>
+        <canvas id="myCanvas" width="500" height="500"></canvas>
+        <h2><button class="myButtonE" onClick="drawEasy()">EASY</button><button class="myButtonH" onClick="drawHard()">HARD</button></h2>
+        <h2><button class="myButtonR" onClick="replay()">PLAY AGAIN!</button>
+        <img id="candy" src="img/candy.png" style="display:none">
+        <img id="hardCandy" src="img/hardCandy.png" style="display:none">
+        <img id="cotton" src="img/cotton.png" style="display:none">
+        <img id="veggie" src="img/veggie.png" style="display:none">
+        <img id="bag" src="img/bag.png" style="display:none">
+        <img id="background" src="img/bkg.jpg" style="display:none">
+        <audio id="music">
+            <source src="sounds/music.mp3" type="audio/mpeg">
+        </audio>
+        <div>Created by: Rachel Roberts</div>
+        <!-- background music attribution -->
+         <div>Music Copyright:</div><div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/" about="http://freemusicarchive.org/music/Lately_Kind_of_Yeah/Veldt/"><span property="dct:title">Veldt</span> (<a rel="cc:attributionURL" property="cc:attributionName" href="http://freemusicarchive.org/music/Lately_Kind_of_Yeah/">Lately Kind of Yeah</a>) / <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a></div>
+        <audio id="ding">
+            <source src="sounds/ding.mp3" type="audio/mpeg">
+        </audio> <!-- recorded by: Mark DiAngelo -->
+        <audio id="error">
+            <source src="sounds/error.mp3" type="audio/mpeg">
+        </audio> <!-- recorded by: Mike Koenig -->
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script src="js/grocscript.js"></script> 
+    </body>
+
+</html>
