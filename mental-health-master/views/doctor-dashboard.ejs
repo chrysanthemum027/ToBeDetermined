@@ -10,15 +10,15 @@
 <form method="post" action="doctor/doctor-dashboard/add-blog" id="blog-form">
 
             <label><B>Title:</B>
-            <input type="text" name="title" placeholder="Enter the Title" required>
+            <input type="text" name="title" form = "blog-form" placeholder="Enter the Title" required>
             </label><br><br>
             <label><B>Category:</B>
-            <input type="text" name="category" placeholder="Enter the Category" required>
+            <input type="text" name="category" form = "blog-form" placeholder="Enter the Category" required>
             </label><br><br>	
 	    <label><B>Blog:</B><br><br>
 	  <textarea id="content1" name="content" form = "blog-form"></textarea>
 	  <br><br></label>
-	  <input type="hidden" name="author" value="<%= doctor.name%>">
+	  <input type="hidden" name="author" form = "blog-form" value="<%= doctor.name%>">
        <button type="submit"><b>Save</b></button> 
 </form>
 </div>
