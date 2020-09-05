@@ -40,7 +40,6 @@ app.set("view engine", "ejs");
 app.use('/doctor', require('./routes/doctor.js'));
 
 
-//app.use('/', require('./routes/app.js'));
 app.get('/blog', async (req, res) => {
   const blog = await blogModel.find({});
 

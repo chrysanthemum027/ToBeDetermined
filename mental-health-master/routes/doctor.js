@@ -163,6 +163,4 @@ const blog =  blogModel.find({});
   }
 });
 
-
-
 module.exports = app;
