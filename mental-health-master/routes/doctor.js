@@ -167,4 +167,8 @@ const blog =  blogModel.find({});
   }
 });
 
+app.get("/logout",(req,res) => {
+	res.redirect("/home");
+});
+
 module.exports = app;

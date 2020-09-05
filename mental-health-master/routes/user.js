@@ -4,7 +4,8 @@ const commentModel = require('../model/comment.js');
 const doctorModel = require('../model/doctor.js');
 const userpModel = require('../model/userp.js');
 const nodemailer = require("nodemailer");
-const {GMAIL_PASS} = require('../keys')
+;const {GMAIL_PASS} = require('../keys')
+const converter = require('json-2-csv');
 const app = express();
 
 const transporter = nodemailer.createTransport({
@@ -131,5 +132,10 @@ userpModel.findOne({'email':req.body.email},
 	
 }
 )
+
+app.get("/logout",(req,res) => {
+	res.redirect("/home");
+});
+
 
 module.exports = app;
