@@ -9,6 +9,7 @@ const {MONGOURI} = require('./keys')
 const blogModel = require('./model/blog.js');
 const commentModel = require('./model/comment.js');
 const doctorModel = require('./model/doctor.js');
+const userpModel = require('./model/userp.js');
 
 mongoose.connect(MONGOURI,{
     useNewUrlParser:true,
@@ -36,7 +37,7 @@ app.use(expressLayouts);
 app.set("view engine", "ejs");
 
 
-//app.use('/user', require('./routes/user.js'));
+app.use('/userp', require('./routes/user.js'));
 app.use('/doctor', require('./routes/doctor.js'));
 
 
