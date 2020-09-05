@@ -146,8 +146,8 @@ app.post('/doctor/doctor-dashboard/add-blog', async (req,res) => {
     const data2 = {
         "title": req.body.title,
         "content": req.body.content,
-        "author": req.session.author,
-        "category": req.session.category,
+        "author": req.body.author,
+        "category": req.body.category,
     };
   const new_blog = new blogModel(data2);
 
