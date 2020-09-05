@@ -113,14 +113,12 @@ app.get("/userp-status:name", async (req,res) => {
   {
 	  if(!err)
 	  {
-		  console.log(data);
 		  converter.json2csv(data, (err1, csv) => {
     if (err1) {
         throw err1;
     }
 
     // print CSV string
-    console.log(csv);
     fs.writeFileSync('usercomment.csv', csv);
     });
 		  res.render("userp-status",{userpname:userpname});
@@ -230,7 +228,6 @@ app.get('/chatinterface4', (req, res) => {
   res.render("chatinterface4");
 });
 
-});
 
 app.get('/about', (req, res) => {
   res.status(200);
