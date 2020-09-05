@@ -60,9 +60,19 @@ app.get('/blog/:title', (req, res) => {
   {
 	  if(!err)
 	  { 
-		  console.log(data);
+		  blogModel.findOneAndUpdate({'title':rem},{'views':data.views+1},
+  function(err,data)
+  {
+	  if(!err)
+	  { 
+	  
 	  res.render('blog',{blog:data,msg:1});
 	  }
+	  else
+	  {
+		res.send(err);  
+	  }})
+  }
 	  else
 	  {
 		res.send(err);  
