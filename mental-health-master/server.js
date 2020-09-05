@@ -200,6 +200,37 @@ app.get('/faq', (req, res) => {
   res.status(200);
   res.render("faq");
 });
+app.get('/motivationalquotes', (req, res) => {
+  res.status(200);
+  res.render("motivationalquotes");
+});
+
+app.get('/chatbox', (req, res) => {
+  res.status(200);
+  res.render("chatbox");
+});
+
+app.get('/chatinterface1', (req, res) => {
+  res.status(200);
+  res.render("chatinterface1");
+});
+
+app.get('/chatinterface2', (req, res) => {
+  res.status(200);
+  res.render("chatinterface2");
+});
+
+app.get('/chatinterface3', (req, res) => {
+  res.status(200);
+  res.render("chatinterface3");
+});
+
+app.get('/chatinterface4', (req, res) => {
+  res.status(200);
+  res.render("chatinterface4");
+});
+
+});
 
 app.get('/about', (req, res) => {
   res.status(200);
