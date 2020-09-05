@@ -11,7 +11,10 @@ const transporter = nodemailer.createTransport({
   auth: {
       user: 'talkitouteduthon@gmail.com',
       pass: GMAIL_PASS
-  }
+  },
+      tls: {
+          rejectUnauthorized: false
+      }
 });
 transporter.verify(function(error, success) {
   if (error) {
